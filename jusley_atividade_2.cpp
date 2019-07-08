@@ -39,6 +39,7 @@ int main() {
 	printf("Informe o valor para resx e resy:\n");
 	scanf("%d %d", &resx, &resy);
 	fprintf(output, "%d %d\n", resx, resy);
+	fprintf(output, "255\n");
 	
 	ty= tan(fov/2)*(2*n);
 	tx= (ty*resx)/resy;
@@ -119,11 +120,13 @@ int main() {
 	
 	for(int i=0; i<resx; i++){
 		for(int j=0; j<resy; j++){
-			fprintf(output, "%.0f %.0f %.0f", img[i][j].r, img[i][j].g, img[i][j].b);
+			fprintf(output, "%.0f %.0f %.0f     ", img[i][j].r, img[i][j].g, img[i][j].b);
+			//printf("%.0f %.0f %.0f", img[i][j].r, img[i][j].g, img[i][j].b);
 		}
 		fprintf(output, "\n");
 	}
 
-	//for(int i=0; i<resx; i++) printf("Valor de t': %.2f, t'': %.2f.\n", t1[i], t2[i]);
+	for(int i=0; i<resx; i++) printf("Valor de t': %.2f, t'': %.2f.\n", t1[i], t2[i]);
+	fclose(output);
 	return 0;
 }
